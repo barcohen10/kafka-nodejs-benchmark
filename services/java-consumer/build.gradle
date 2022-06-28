@@ -1,0 +1,51 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'application'
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+version = "1.0.0"
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	implementation "org.apache.avro:avro:1.11.0"
+	implementation "org.apache.kafka:kafka-streams:3.1.0"
+	implementation "io.prometheus:simpleclient:0.8.0"
+	implementation "io.prometheus:simpleclient_httpserver:0.8.0"
+	implementation "io.prometheus:simpleclient_hotspot:0.8.0"
+	implementation "org.json:json:20180130"
+	implementation 'org.springframework.kafka:spring-kafka:2.8.6'
+	implementation 'org.springframework.boot:spring-boot:2.7.0'
+	implementation 'org.apache.kafka:kafka-clients:2.8.0'
+
+	testImplementation "org.apache.kafka:kafka-streams-test-utils:3.1.0"
+	testImplementation "junit:junit:4.13.2"
+	testImplementation 'org.hamcrest:hamcrest:2.2'
+}
+
+test {
+	testLogging {
+		outputs.upToDateWhen { false }
+		showStandardStreams = true
+		exceptionFormat = "full"
+	}
+}
+
+jar {
+	manifest {
+		attributes(
+				"Main-Class": "App"
+		)
+	}
+}

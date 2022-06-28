@@ -1,0 +1,25 @@
+# kafkajs Producer
+
+Kafka producer built using the kafkajs library
+
+## Installation
+
+```bash
+npm install
+```
+
+## Running locally
+
+Create .env file with the following params:
+
+```javascript
+KAFKA_BOOTSTRAP_SERVER=""
+KAFKA_USERNAME=""
+KAFKA_PASSWORD=""
+TOPIC_MULTIPLE_PARTITIONS=""
+```
+
+and run the command:
+```bash
+npm run build && npm run start:dev
+```
